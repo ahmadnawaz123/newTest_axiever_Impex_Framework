@@ -13,7 +13,7 @@ import textAxiever.GenericUtility.WebDriverUtility;
 
 public class newCustomer extends WebDriverUtility {
 	//Declaration
-	@FindBy(id = "customer_name")
+	@FindBy(name = "customer_name")
 	private WebElement customerNameTextField;
 	
 	@FindBy(id = "address_line1")
@@ -132,9 +132,7 @@ public class newCustomer extends WebDriverUtility {
 		return newCustomerHeader;
 	}
 	
-	
-	
-	
+	//Business Library
 
 	public void enterCustomerName(String cusname) {
 		customerNameTextField.sendKeys(cusname);
@@ -191,6 +189,9 @@ public class newCustomer extends WebDriverUtility {
 		return customerHeader;
 	}
 	
-	
+	public String newCustomerAdded() {
+		String CustomerAdded= customerNameTextField.getAttribute("value");
+		return CustomerAdded;
+	}
 	
 }

@@ -9,7 +9,8 @@ public interface IConstantUtility {
 	 */
 	public interface IConstantsUtility {
 
-		String propertyfilepath = ".\\src\\test\\resources\\commonData.properties";
+		String propertyfilepathcommondata = ".\\src\\test\\resources\\commonData.properties";
+		String propertyfilepathcustomerdata =".\\src\\test\\resources\\customerModuleTestData.properties";
 		String Excelfilepath =".\\src\\test\\resources\\Axiever_Book_1.xlsx";
 		
 //		String DBUrl = "";

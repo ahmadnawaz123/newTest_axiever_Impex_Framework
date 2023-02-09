@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -28,7 +30,9 @@ public class BaseClass {
 	public WebDriverUtility wUtil = new WebDriverUtility();
 	public PropertyFileUtility pUtil = new PropertyFileUtility();
 	public WebDriver driver ;
-//	@BeforeSuite
+	public ChromeOptions op = new ChromeOptions();
+//
+//  @BeforeSuite
 //	public void bsConfig() throws SQLException
 //	{
 //		//dUtil.connectToDB();
@@ -43,16 +47,22 @@ public class BaseClass {
 	{
 		String BROWSER = pUtil.readDataFromPFile("browser");
 		String URL = pUtil.readDataFromPFile("url");
-		
+		//disabling notification parameter
+		op.addArguments("--disable-notifications");
 		
 		if(BROWSER.equalsIgnoreCase("CHROME"))
 		{
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(op);
 			Reporter.log("--Browser "+BROWSER+" launched successfully--",true);
 		}
 		else if(BROWSER.equalsIgnoreCase("FIREFOX"))
 		{
 			driver = new FirefoxDriver();
+			Reporter.log("--Browser "+BROWSER+" launched successfully--",true);
+		}
+		else if(BROWSER.equalsIgnoreCase("EDGE"))
+		{
+			driver = new EdgeDriver();
 			Reporter.log("--Browser "+BROWSER+" launched successfully--",true);
 		}
 		else

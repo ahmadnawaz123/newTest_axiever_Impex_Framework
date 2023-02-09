@@ -360,7 +360,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 				boolean isFound = false;
 				for (WebElement option : alldropDownOptions) {
 						if (option.getText().equals(optionToBeSelected)) {
-						System.out.println(option.getText()+ " is selected from dropdown successfully--");
+						System.out.println(option.getText()+ " is selected from dropdown successfully");
 						option.click();
 						isFound = true;
 						break;
